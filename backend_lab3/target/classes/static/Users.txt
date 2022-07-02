@@ -1,0 +1,1 @@
+[{"id":1,"name":"Jan Kowalski","email":"jan.kowalski@email.com"},{"id":2,"name":"Anna Kowalska","email":"anna.kowalska@email.com"},{"id":3,"name":"Jan Nowak","email":"jan.nowak@email.com"},{"id":4,"name":"Anna Nowak","email":"anna.nowak@email.com"},{"id":5,"name":"Adam Kowalski","email":"adam.kowalski@email.com"},{"id":6,"name":"Ewa Nowak","email":"ewa.nowak@email.com"}]
