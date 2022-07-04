@@ -22,6 +22,7 @@ public class MenuService {
 
     private MenuResponse mapToMenuResponse(Menu menu) {
         return MenuResponse.builder()
+                .id(menu.getId())
                 .dish(menu.getDish())
                 .description(menu.getDescription())
                 .price(menu.getPrice())

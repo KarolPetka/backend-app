@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuResponse {
+    private Long id;
     private String dish;
     private String description;
     private int price;
