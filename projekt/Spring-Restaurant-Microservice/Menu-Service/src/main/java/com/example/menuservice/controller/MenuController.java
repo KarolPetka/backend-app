@@ -1,13 +1,11 @@
 package com.example.menuservice.controller;
 
+import com.example.menuservice.dto.MenuRequest;
 import com.example.menuservice.dto.MenuResponse;
 import com.example.menuservice.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,11 @@ public class MenuController {
     @ResponseStatus(HttpStatus.OK)
     public List<MenuResponse> getMenu(){
         return menuService.getMenu();
+    }
+
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addDish(@RequestBody MenuRequest menuRequest){
+        menuService.addDish(menuRequest);
     }
 }

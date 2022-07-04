@@ -1,15 +1,18 @@
 package com.example.menuservice.service;
 
+import com.example.menuservice.dto.MenuRequest;
 import com.example.menuservice.dto.MenuResponse;
 import com.example.menuservice.model.Menu;
 import com.example.menuservice.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MenuService {
 
     private final MenuRepository menuRepository;
@@ -18,6 +21,21 @@ public class MenuService {
         List<Menu> dishes = menuRepository.findAll();
 
         return dishes.stream().map(this::mapToMenuResponse).toList();
+    }
+
+    public void addDish(MenuRequest menuRequest) {
+        Menu newDish = Menu.builder()
+                .dish(menuRequest.getDish())
+                .description(menuRequest.getDescription())
+                .price(menuRequest.getPrice())
+                .build();
+
+        try {
+            menuRepository.save(newDish);
+            log.info("Product with name " + newDish.getDish() + " has been saved with ID number " + newDish.getId());
+        } catch (Exception e){
+            log.error("Error occurred while saving dish named " + newDish.getDish());
+        }
     }
 
     private MenuResponse mapToMenuResponse(Menu menu) {
