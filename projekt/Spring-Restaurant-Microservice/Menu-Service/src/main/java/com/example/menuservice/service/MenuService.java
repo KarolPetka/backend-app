@@ -38,6 +38,10 @@ public class MenuService {
         }
     }
 
+    public void updateMenu(Long id, MenuRequest menuRequest) {
+
+    }
+
     private MenuResponse mapToMenuResponse(Menu menu) {
         return MenuResponse.builder()
                 .id(menu.getId())

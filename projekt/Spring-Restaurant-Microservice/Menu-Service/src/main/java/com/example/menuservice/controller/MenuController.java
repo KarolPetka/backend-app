@@ -27,4 +27,10 @@ public class MenuController {
     public void addDish(@RequestBody MenuRequest menuRequest){
         menuService.addDish(menuRequest);
     }
+
+    @PutMapping("/update/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateDish(@PathVariable Long id, @RequestBody MenuRequest menuRequest){
+        menuService.updateMenu(id, menuRequest);
+    }
 }
