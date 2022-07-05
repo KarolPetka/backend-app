@@ -26,4 +26,8 @@ public class OrderService {
                 .build();
         orderRepository.save(newOrder);
     }
+
+    public void updateMenu(Long id, OrderRequest orderRequest) {
+        orderRepository.updateOrder(id, orderRequest.getDish(), orderRequest.getPrice(), orderRequest.getQuantity());
+    }
 }

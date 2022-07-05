@@ -27,4 +27,10 @@ public class OrderController {
     public void addOrder(@RequestBody OrderRequest orderRequest){
         orderService.addOrder(orderRequest);
     }
+
+    @PutMapping("/update/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateDish(@PathVariable Long id, @RequestBody OrderRequest orderRequest){
+        orderService.updateMenu(id, orderRequest);
+    }
 }
