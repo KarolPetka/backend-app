@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -18,7 +17,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "orders_order_item_fk", referencedColumnName = "id")
-    private List<OrderItems> orderItems;
+    private String dish;
+    private int price;
+    private int quantity;
 }
