@@ -33,4 +33,10 @@ public class StockController {
     public void updateDish(@PathVariable Long id, @RequestBody StockRequest stockRequest){
         stockService.updateStock(id, stockRequest);
     }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deleteDish(@PathVariable Long id){
+        stockService.deleteStock(id);
+    }
 }

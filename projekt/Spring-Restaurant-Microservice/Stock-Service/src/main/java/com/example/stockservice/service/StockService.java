@@ -30,4 +30,8 @@ public class StockService {
     public void updateStock(Long id, StockRequest stockRequest) {
         stockRepository.updateStock(id, stockRequest.getDish(), stockRequest.getQuantity());
     }
+
+    public void deleteStock(Long id) {
+        stockRepository.deleteById(id);
+    }
 }
