@@ -31,6 +31,6 @@ public class StockController {
     @PutMapping("/update/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateDish(@PathVariable Long id, @RequestBody StockRequest stockRequest){
-        stockService.updateMenu(id, stockRequest);
+        stockService.updateStock(id, stockRequest);
     }
 }
