@@ -49,6 +49,16 @@ public class MenuService {
         }
     }
 
+    public void deleteDish(Long id) {
+        try {
+            menuRepository.deleteById(id);
+            log.info("Dish with id " + id + " has been deleted");
+        } catch (Exception e) {
+            log.error("Error occurred while deleting dish with id " + id);
+            e.printStackTrace();
+        }
+    }
+
     private MenuResponse mapToMenuResponse(Menu menu) {
         return MenuResponse.builder()
                 .id(menu.getId())

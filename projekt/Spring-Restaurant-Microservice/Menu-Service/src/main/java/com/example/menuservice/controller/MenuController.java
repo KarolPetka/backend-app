@@ -29,8 +29,14 @@ public class MenuController {
     }
 
     @PutMapping("/update/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateDish(@PathVariable Long id, @RequestBody MenuRequest menuRequest){
         menuService.updateMenu(id, menuRequest);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deleteDish(@PathVariable Long id){
+        menuService.deleteDish(id);
     }
 }
