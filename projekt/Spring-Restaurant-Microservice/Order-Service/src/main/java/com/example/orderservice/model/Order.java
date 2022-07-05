@@ -17,6 +17,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderNumber;
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItems> orderItems;
