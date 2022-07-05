@@ -27,4 +27,10 @@ public class StockController {
     public void addOrder(@RequestBody StockRequest stockRequest){
         stockService.addOrder(stockRequest);
     }
+
+    @PutMapping("/update/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateDish(@PathVariable Long id, @RequestBody StockRequest stockRequest){
+        stockService.updateMenu(id, stockRequest);
+    }
 }

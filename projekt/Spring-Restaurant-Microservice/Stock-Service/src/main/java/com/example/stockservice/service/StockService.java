@@ -26,4 +26,8 @@ public class StockService {
 
         stockRepository.save(newDish);
     }
+
+    public void updateMenu(Long id, StockRequest stockRequest) {
+        stockRepository.updateStock(id, stockRequest.getDish(), stockRequest.getQuantity());
+    }
 }
