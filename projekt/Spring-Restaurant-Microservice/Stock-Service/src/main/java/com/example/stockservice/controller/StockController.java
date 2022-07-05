@@ -1,13 +1,11 @@
 package com.example.stockservice.controller;
 
+import com.example.stockservice.dto.StockRequest;
 import com.example.stockservice.model.Stock;
 import com.example.stockservice.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,11 @@ public class StockController {
     @ResponseStatus(HttpStatus.OK)
     public List<Stock> getStock(){
         return stockService.getStock();
+    }
+
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addOrder(@RequestBody StockRequest stockRequest){
+        stockService.addOrder(stockRequest);
     }
 }

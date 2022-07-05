@@ -1,5 +1,6 @@
 package com.example.stockservice.service;
 
+import com.example.stockservice.dto.StockRequest;
 import com.example.stockservice.model.Stock;
 import com.example.stockservice.repository.StockRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +16,14 @@ public class StockService {
 
     public List<Stock> getStock() {
         return stockRepository.findAll();
+    }
+
+    public void addOrder(StockRequest stockRequest) {
+        Stock newDish = Stock.builder()
+                .dish(stockRequest.getDish())
+                .quantity(stockRequest.getQuantity())
+                .build();
+
+        stockRepository.save(newDish);
     }
 }
