@@ -33,4 +33,10 @@ public class OrderController {
     public void updateDish(@PathVariable Long id, @RequestBody OrderRequest orderRequest){
         orderService.updateMenu(id, orderRequest);
     }
+
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deleteDish(@PathVariable Long id){
+        orderService.deleteDish(id);
+    }
 }
