@@ -32,14 +32,21 @@ public class MenuService {
 
         try {
             menuRepository.save(newDish);
-            log.info("Product with name " + newDish.getDish() + " has been saved with ID number " + newDish.getId());
-        } catch (Exception e){
+            log.info("Dish with name " + newDish.getDish() + " has been saved with ID number " + newDish.getId());
+        } catch (Exception e) {
             log.error("Error occurred while saving dish named " + newDish.getDish());
+            e.printStackTrace();
         }
     }
 
     public void updateMenu(Long id, MenuRequest menuRequest) {
-
+        try {
+            menuRepository.updateDish(id, menuRequest.getDish(), menuRequest.getDescription(), menuRequest.getPrice());
+            log.info("Dish with name " + menuRequest.getDish() + " has been updated");
+        } catch (Exception e) {
+            log.error("Error occurred while updating dish named " + menuRequest.getDish());
+            e.printStackTrace();
+        }
     }
 
     private MenuResponse mapToMenuResponse(Menu menu) {
