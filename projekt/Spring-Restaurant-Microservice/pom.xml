@@ -18,6 +18,7 @@
     <modules>
         <module>Menu-Service</module>
         <module>Order-Service</module>
+        <module>Stock-Service</module>
     </modules>
 
     <properties>
