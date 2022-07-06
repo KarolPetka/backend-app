@@ -5,6 +5,7 @@ import com.example.stockservice.model.Stock;
 import com.example.stockservice.repository.StockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class StockService {
 
     private final StockRepository stockRepository;
+    private final WebClient webClient;
 
     public List<Stock> getStock() {
         return stockRepository.findAll();
