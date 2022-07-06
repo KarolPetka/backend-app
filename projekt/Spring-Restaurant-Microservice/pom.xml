@@ -20,7 +20,7 @@
         <module>Order-Service</module>
         <module>Stock-Service</module>
         <module>Server</module>
-        <module>Gateway</module>
+        <module>Api-Gateway</module>
     </modules>
 
     <properties>
