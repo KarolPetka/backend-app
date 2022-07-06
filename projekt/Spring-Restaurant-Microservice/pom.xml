@@ -19,11 +19,14 @@
         <module>Menu-Service</module>
         <module>Order-Service</module>
         <module>Stock-Service</module>
+        <module>Server</module>
+        <module>Gateway</module>
     </modules>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +58,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>
                 <version>2.7.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
