@@ -20,6 +20,10 @@ public class StockService {
         return stockRepository.findAll();
     }
 
+    public Integer getQuantityForDish(String dish) {
+        return stockRepository.getQuantityForDish(dish);
+    }
+
     public void addOrder(StockRequest stockRequest) {
         Stock newDish = Stock.builder()
                 .dish(stockRequest.getDish())
@@ -29,8 +33,16 @@ public class StockService {
         stockRepository.save(newDish);
     }
 
-    public void updateStock(Long id, StockRequest stockRequest) {
-        stockRepository.updateStock(id, stockRequest.getDish(), stockRequest.getQuantity());
+    public void updateStock(String dishToUpdate, StockRequest stockRequest) {
+        stockRepository.updateStock(dishToUpdate, stockRequest.getDish(), stockRequest.getQuantity());
+    }
+
+    public void deductQuantity(String dish, Integer quantity) {
+        stockRepository.deductQuantity(dish, quantity);
+    }
+
+    public void addQuantity(String dish, Integer quantity) {
+        stockRepository.addQuantity(dish, quantity);
     }
 
     public void deleteStock(Long id) {

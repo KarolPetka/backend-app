@@ -5,6 +5,7 @@ import com.example.orderservice.model.Order;
 import com.example.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,15 +24,13 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void addOrder(@RequestBody OrderRequest orderRequest){
-        orderService.addOrder(orderRequest);
+    public ResponseEntity<?> addOrder(@RequestBody OrderRequest orderRequest){
+        return orderService.addOrder(orderRequest);
     }
 
     @PutMapping("/update/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateDish(@PathVariable Long id, @RequestBody OrderRequest orderRequest){
-        orderService.updateMenu(id, orderRequest);
+    public ResponseEntity<?> updateDish(@PathVariable Long id, @RequestBody OrderRequest orderRequest){
+        return orderService.updateDish(id, orderRequest);
     }
 
     @DeleteMapping("/delete/{id}")

@@ -25,6 +25,10 @@ public class MenuService {
         return dishes.stream().map(this::mapToMenuResponse).toList();
     }
 
+    public Integer getDishPrice(String dish) {
+        return menuRepository.getDishPrice(dish);
+    }
+
     public void addDish(MenuRequest menuRequest) {
         Menu newDish = Menu.builder()
                 .dish(menuRequest.getDish())

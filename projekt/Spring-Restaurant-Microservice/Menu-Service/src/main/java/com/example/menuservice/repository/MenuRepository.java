@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface MenuRepository extends JpaRepository<Menu, Long> {
 
+    @Query("SELECT m.price FROM Menu m WHERE m.dish = :dish")
+    Integer getDishPrice(String dish);
+
     @Modifying
     @Transactional
     @Query("UPDATE Menu m SET m.dish = :dish, m.description = :description, m.price = :price WHERE m.id = :id")

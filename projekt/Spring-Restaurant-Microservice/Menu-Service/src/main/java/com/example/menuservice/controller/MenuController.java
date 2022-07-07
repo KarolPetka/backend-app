@@ -22,6 +22,12 @@ public class MenuController {
         return menuService.getMenu();
     }
 
+    @GetMapping("/price/{dish}")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer getDishPrice(@PathVariable String dish){
+        return menuService.getDishPrice(dish);
+    }
+
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public void addDish(@RequestBody MenuRequest menuRequest){
